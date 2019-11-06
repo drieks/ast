@@ -20,6 +20,8 @@
       <module name="kotlinx.ast.common.jvmTest" target="1.6" />
       <module name="kotlinx.ast.grammar-antlr4-parser-common.jvmMain" target="1.8" />
       <module name="kotlinx.ast.grammar-antlr4-parser-common.jvmTest" target="1.8" />
+      <module name="kotlinx.ast.grammar-antlr4-parser-test.jvmMain" target="1.8" />
+      <module name="kotlinx.ast.grammar-antlr4-parser-test.jvmTest" target="1.8" />
       <module name="kotlinx.ast.grammar-kotlin-antlr-kotlin.jvmMain" target="1.8" />
       <module name="kotlinx.ast.grammar-kotlin-antlr-kotlin.jvmTest" target="1.8" />
       <module name="kotlinx.ast.grammar-kotlin-common.jvmMain" target="1.8" />

@@ -20,7 +20,7 @@ dependencies {
     antlr("org.antlr:antlr4:${Versions.antlrJava}")
     api(project(":parser-antlr-java"))
     api(project(":grammar-antlr4-parser-common"))
-    testApi(project(":common-test"))
+    testApi(project(":grammar-antlr4-parser-test"))
 }
 
 sourceSets {
