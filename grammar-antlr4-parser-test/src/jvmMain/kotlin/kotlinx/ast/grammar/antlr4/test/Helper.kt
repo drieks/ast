@@ -1,13 +1,13 @@
-package kotlinx.ast.grammar.kotlin.test.klass
+package kotlinx.ast.grammar.antlr4.test
 
 import kotlinx.ast.common.AstChannel
 import kotlinx.ast.common.ast.DefaultAstTerminal
-import kotlinx.ast.grammar.kotlin.common.KotlinGrammarAstChannels
+import kotlinx.ast.grammar.antlr4.common.Antlr4GrammarAstChannels
 
-internal fun terminal(
+fun terminal(
     name: String,
     text: String,
-    channel: AstChannel = KotlinGrammarAstChannels.default
+    channel: AstChannel = Antlr4GrammarAstChannels.default
 ): DefaultAstTerminal {
     return DefaultAstTerminal(name, text, channel)
 }
