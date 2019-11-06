@@ -16,6 +16,8 @@ object Antlr4GrammarAntlrJavaParserExtractor
                 throw RuntimeException("token should be handled by internal ast parser")
             Antlr4GrammarParserType.grammarSpec ->
                 ANTLRv4Parser::grammarSpec
+            Antlr4GrammarParserType.lexerRuleSpec ->
+                ANTLRv4Parser::lexerRuleSpec
         }
     }
 }

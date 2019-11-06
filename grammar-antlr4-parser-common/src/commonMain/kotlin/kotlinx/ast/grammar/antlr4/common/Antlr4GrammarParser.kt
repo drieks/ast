@@ -8,4 +8,8 @@ interface Antlr4GrammarParser<Parser, Tree> : AstParser<Parser, Tree, Antlr4Gram
     fun parseGrammarSpec(source: AstSource): Ast {
         return parse(source, Antlr4GrammarParserType.grammarSpec)
     }
+
+    fun parseLexerRuleSpec(source: AstSource): Ast {
+        return parse(source, Antlr4GrammarParserType.lexerRuleSpec)
+    }
 }
