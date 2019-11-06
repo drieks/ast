@@ -1,4 +1,4 @@
-package kotlinx.ast.grammar.antlr4.target.antlr.java
+package kotlinx.ast.grammar.antlr4.test
 
 import kotlinx.ast.grammar.antlr4.common.Antlr4GrammarParser
 import kotlinx.ast.test.pathMap

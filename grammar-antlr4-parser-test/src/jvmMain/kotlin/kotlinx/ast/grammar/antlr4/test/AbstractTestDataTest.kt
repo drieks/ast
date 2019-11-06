@@ -1,4 +1,4 @@
-package kotlinx.ast.grammar.antlr4.target.antlr.java
+package kotlinx.ast.grammar.antlr4.test
 
 import io.kotlintest.fail
 import io.kotlintest.shouldBe
