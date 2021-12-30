@@ -43,6 +43,39 @@ fun List<KlassIdentifier>.identifierName(): String {
     )
 }
 
+sealed interface KlassBlock {
+    val statements: List<KlassStatement>
+}
+
+sealed class KlassStatement : KlassNode<KlassStatement>()
+
+data class KlassLoopStatement(
+    val type: KlassLoopType,
+    override val statements: List<KlassStatement> = emptyList(),
+    override val attachments: AstAttachments = AstAttachments(),
+) : KlassStatement(), KlassBlock {
+    override val description: String = "KlassLoopStatement(${type.rawName})"
+
+    override val children: List<Ast> = statements
+
+    override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassStatement> {
+        val block = children.filterIsInstance<KlassBlock>().firstOrNull()
+        return if (block != null) {
+            astSuccess(
+                copy(
+                    statements = block.statements
+                )
+            )
+        } else {
+            "KlassLoopStatement requires one KlassBlock".astError()
+        }
+    }
+
+    override fun withAttachments(attachments: AstAttachments): KlassLoopStatement {
+        return copy(attachments = attachments)
+    }
+}
+
 data class KlassComment(
     val comment: String,
     val type: KlassCommentType,
