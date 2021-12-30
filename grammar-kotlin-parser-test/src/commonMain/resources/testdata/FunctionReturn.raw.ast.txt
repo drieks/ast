@@ -1,0 +1,77 @@
+kotlinFile
+  packageHeader
+  importList
+  topLevelObject
+    declaration
+      functionDeclaration
+        FUN >>>fun<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        simpleIdentifier
+          Identifier >>>test<<< (DEFAULT_TOKEN_CHANNEL)
+        functionValueParameters
+          LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+          RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+        COLON >>>:<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        type
+          typeReference
+            userType
+              simpleUserType
+                simpleIdentifier
+                  Identifier >>>String<<< (DEFAULT_TOKEN_CHANNEL)
+        WS >>> <<< (HIDDEN)
+        functionBody
+          block
+            LCURL >>>{<<< (DEFAULT_TOKEN_CHANNEL)
+            NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            WS >>> <<< (HIDDEN)
+            WS >>> <<< (HIDDEN)
+            statements
+              statement
+                expression
+                  disjunction
+                    conjunction
+                      equality
+                        comparison
+                          genericCallLikeComparison
+                            infixOperation
+                              elvisExpression
+                                infixFunctionCall
+                                  rangeExpression
+                                    additiveExpression
+                                      multiplicativeExpression
+                                        asExpression
+                                          prefixUnaryExpression
+                                            postfixUnaryExpression
+                                              primaryExpression
+                                                jumpExpression
+                                                  RETURN >>>return<<< (DEFAULT_TOKEN_CHANNEL)
+                                                  WS >>> <<< (HIDDEN)
+                                                  expression
+                                                    disjunction
+                                                      conjunction
+                                                        equality
+                                                          comparison
+                                                            genericCallLikeComparison
+                                                              infixOperation
+                                                                elvisExpression
+                                                                  infixFunctionCall
+                                                                    rangeExpression
+                                                                      additiveExpression
+                                                                        multiplicativeExpression
+                                                                          asExpression
+                                                                            prefixUnaryExpression
+                                                                              postfixUnaryExpression
+                                                                                primaryExpression
+                                                                                  stringLiteral
+                                                                                    lineStringLiteral
+                                                                                      QUOTE_OPEN >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                      lineStringContent
+                                                                                        LineStrText >>>test<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                                      QUOTE_CLOSE >>>"<<< (DEFAULT_TOKEN_CHANNEL)
+              semis
+                NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+            RCURL >>>}<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+  EOF >>><EOF><<< (DEFAULT_TOKEN_CHANNEL)
