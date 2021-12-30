@@ -58,7 +58,7 @@ data class KlassLoopStatement(
 
     override val children: List<Ast> = statements
 
-    override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassStatement> {
+    override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassLoopStatement> {
         val block = children.filterIsInstance<KlassBlock>().firstOrNull()
         return if (block != null) {
             astSuccess(
