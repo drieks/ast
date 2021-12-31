@@ -7,3 +7,4 @@
       [49..55]     [3:21..3:27]         KlassDeclaration(parameter i Int)
       [57..67]     [3:29..3:39]         KlassDeclaration(parameter s String?)
       [69..85]     [3:41..3:57]         KlassDeclaration(parameter l List<String>)
+                                        KlassComment(Doc)

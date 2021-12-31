@@ -24,11 +24,13 @@
       [228..238]   [12:20..12:30]       KlassDeclaration(parameter x Int)
       [237..238]   [12:29..12:30]         literalConstant
    95 [237..238]   [12:29..12:30]           IntegerLiteral
+                                        KlassComment(Doc)
       [252..351]   [14:4..17:6]       KlassDeclaration(fun annotated2 Int)
       [252..264]   [14:4..14:16]        KlassAnnotation(Annotated)
       [268..275]   [15:5..15:12]        KlassModifier(private, visibilityModifier)
       [291..316]   [15:28..15:53]       KlassDeclaration(parameter x Int)
       [291..309]   [15:28..15:46]         KlassAnnotation(AnotherAnnotation)
+                                        KlassComment(Doc)
       [356..402]   [19:4..20:35]      KlassDeclaration(fun generic X)
       [356..368]   [19:4..19:16]        KlassAnnotation(Annotated)
       [394..398]   [20:27..20:31]       KlassDeclaration(parameter x X)

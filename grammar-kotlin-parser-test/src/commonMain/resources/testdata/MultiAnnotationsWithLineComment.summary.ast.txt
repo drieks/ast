@@ -10,3 +10,4 @@ KlassDeclaration(fun parse)
       KlassString
         Escape("\$")
         "{123}"
+  KlassComment(Doc)

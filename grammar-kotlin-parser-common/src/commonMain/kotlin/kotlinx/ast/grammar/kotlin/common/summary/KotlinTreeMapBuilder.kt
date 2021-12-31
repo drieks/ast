@@ -420,6 +420,7 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
                     identifier = identifiers[0],
                     type = identifiers.drop(1),
                     receiverType = receiverType,
+                    statements = result.filterIsInstance<KlassBlock>().flatMap(KlassBlock::statements),
                     annotations = result.filterIsInstance<KlassAnnotation>(),
                     modifiers = result.filterIsInstance<KlassModifier>(),
                     parameter = result.filterIsInstance<KlassDeclaration>(),
@@ -436,7 +437,13 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
     .convert(
         filter = byDescription("functionBody")
     ) { _: Ast ->
-        astDrop()
+        astContinue(
+            KlassBlock(
+                listOf(
+                    KlassComment("TODO", KlassCommentType.Doc)
+                )
+            )
+        )
     }
 
 // variableDeclaration

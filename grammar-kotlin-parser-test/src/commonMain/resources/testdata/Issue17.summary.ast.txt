@@ -9,3 +9,4 @@ KlassDeclaration(class Group)
   classBody
     KlassDeclaration(fun add Int)
       KlassDeclaration(parameter member T)
+      KlassComment(Doc)

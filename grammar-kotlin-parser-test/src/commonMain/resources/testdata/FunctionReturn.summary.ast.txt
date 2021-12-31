@@ -1,3 +1,4 @@
 PackageHeader()
 importList
 KlassDeclaration(fun test String)
+  KlassComment(Doc)

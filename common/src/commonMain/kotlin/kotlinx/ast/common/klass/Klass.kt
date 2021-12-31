@@ -43,17 +43,39 @@ fun List<KlassIdentifier>.identifierName(): String {
     )
 }
 
-sealed interface KlassBlock {
-    val statements: List<KlassStatement>
+sealed interface KlassStatements {
+    val statements: List<Klass>
+}
+
+data class KlassBlock(
+    override val statements: List<Klass>,
+    override val attachments: AstAttachments = AstAttachments(),
+) : KlassNode<KlassBlock>(), KlassStatements {
+    override val description: String = "KlassBlock"
+
+    override val children: List<Ast> = statements
+
+    override fun <State> TreeMapContext<State>.withChildren(children: List<Ast>): AstResult<State, KlassBlock> {
+        val statements = children.filterIsInstance<KlassStatement>()
+        return astSuccess(
+            copy(
+                statements = statements
+            )
+        )
+    }
+
+    override fun withAttachments(attachments: AstAttachments): KlassBlock {
+        return copy(attachments = attachments)
+    }
 }
 
 sealed class KlassStatement : KlassNode<KlassStatement>()
 
 data class KlassLoopStatement(
     val type: KlassLoopType,
-    override val statements: List<KlassStatement> = emptyList(),
+    override val statements: List<Klass> = emptyList(),
     override val attachments: AstAttachments = AstAttachments(),
-) : KlassStatement(), KlassBlock {
+) : KlassStatement(), KlassStatements {
     override val description: String = "KlassLoopStatement(${type.rawName})"
 
     override val children: List<Ast> = statements
@@ -285,6 +307,7 @@ data class KlassDeclaration(
     val typeParameters: List<KlassTypeParameter> = emptyList(),
     val inheritance: List<KlassInheritance> = emptyList(),
     val expressions: List<Ast> = emptyList(),
+    val statements: List<Klass> = emptyList(),
     val comments: List<KlassComment> = emptyList(),
     override val attachments: AstAttachments = AstAttachments(),
 ) : KlassNode<KlassDeclaration>(), AstWithAttributes {
@@ -305,6 +328,7 @@ data class KlassDeclaration(
         typeParameters,
         inheritance,
         expressions,
+        statements,
         comments,
     ).flatten()
 
@@ -369,6 +393,8 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
     val parameter = ast.filterIsInstance<KlassDeclaration>()
     val typeParameters = ast.filterIsInstance<KlassTypeParameter>()
     val inheritance = ast.filterIsInstance<KlassInheritance>()
+    val statements = ast.filterIsInstance<KlassBlock>()
+        .flatMap(KlassBlock::statements)
     val comments = ast.filterIsInstance<KlassComment>()
     val receiverType: List<KlassIdentifier> = ast
         .filter("receiverType")
@@ -383,6 +409,7 @@ fun <State> TreeMapContext<State>.toKlassDeclaration(
             parameter +
             typeParameters +
             inheritance +
+            statements +
             comments
     val remaining = ast - used
     return (expressions?.invoke(remaining) ?: astSuccess(remaining)).map { other ->

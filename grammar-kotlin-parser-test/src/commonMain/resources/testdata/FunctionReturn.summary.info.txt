@@ -2,3 +2,4 @@
                                   PackageHeader()
                                   importList
       [0..38]      [1:1..3:2]     KlassDeclaration(fun test String)
+                                    KlassComment(Doc)
