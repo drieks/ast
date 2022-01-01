@@ -1,6 +1,5 @@
 PackageHeader()
 importList
 KlassDeclaration(fun String extension1 String)
-  KlassComment(Doc)
 KlassDeclaration(val String extension2 String)
 KlassDeclaration(val Some.Class extension3 String)

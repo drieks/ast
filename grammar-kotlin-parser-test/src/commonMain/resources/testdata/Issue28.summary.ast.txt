@@ -3,8 +3,6 @@ importList
 KlassDeclaration(object MyObject)
   classBody
     KlassDeclaration(fun myFun)
-      KlassComment(Doc)
 KlassDeclaration(class MyClass)
   classBody
     KlassDeclaration(fun myFun)
-      KlassComment(Doc)

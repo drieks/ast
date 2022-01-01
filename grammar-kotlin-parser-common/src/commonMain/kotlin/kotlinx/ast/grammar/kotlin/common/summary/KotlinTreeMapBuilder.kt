@@ -436,14 +436,15 @@ val kotlinTreeMapBuilder = TreeMapBuilder<KotlinTreeMapState>()
 //     ;
     .convert(
         filter = byDescription("functionBody")
-    ) { _: Ast ->
-        astContinue(
-            KlassBlock(
-                listOf(
-                    KlassComment("TODO", KlassCommentType.Doc)
-                )
+    ) { node: AstNode ->
+        recursiveFlatten(
+            node = node,
+            filter = byDescription("block", "expression")
+        ).map { bodyNodes: List<Ast> ->
+            listOf(
+                KlassBlock(bodyNodes.filterIsInstance<Klass>())
             )
-        )
+        }
     }
 
 // variableDeclaration

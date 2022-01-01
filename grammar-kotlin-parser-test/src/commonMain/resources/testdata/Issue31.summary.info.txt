@@ -9,4 +9,3 @@
       [129..498]   [6:5..14:10]       KlassDeclaration(fun handleViewStateChanges Unit)
       [129..136]   [6:5..6:12]          KlassModifier(private, visibilityModifier)
       [164..201]   [6:40..6:77]         KlassDeclaration(parameter viewState FeatureViewModel.ViewState)
-                                        KlassComment(Doc)

@@ -82,4 +82,3 @@
       [387..434]   [8:39..8:86]         KlassDeclaration(parameter entityCommand EntityCommand<JsonNode>)
       [387..395]   [8:39..8:47]           KlassAnnotation(Payload)
       [436..479]   [8:88..8:131]        KlassDeclaration(parameter record ConsumerRecord<String, Array<Byte>>)
-                                        KlassComment(Doc)

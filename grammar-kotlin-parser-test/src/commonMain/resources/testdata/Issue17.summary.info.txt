@@ -10,4 +10,3 @@
       [317..479]   [15:34..24:2]    classBody
       [409..477]   [20:3..23:4]       KlassDeclaration(fun add Int)
       [417..426]   [20:11..20:20]       KlassDeclaration(parameter member T)
-                                        KlassComment(Doc)
